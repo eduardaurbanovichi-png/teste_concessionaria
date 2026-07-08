@@ -1,4 +1,5 @@
 const CONFIG = {
-    MODEL: 'mistralai/mistral-7b-instruct:free'
+    // Modelo gratuito atualizado e online no OpenRouter
+    MODEL: 'microsoft/phi-3-medium-128k-instruct:free'
 };
 export default CONFIG;
