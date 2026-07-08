@@ -27,7 +27,6 @@ async function sendMessage() {
     memoryContext.push({ role: "user", content: text });
 
     try {
-        // Agora chamamos a nossa rota serverless segura do Netlify
         const response = await fetch("/.netlify/functions/chat", {
             method: "POST",
             headers: {
@@ -40,12 +39,28 @@ async function sendMessage() {
         });
 
         const data = await response.json();
-        const assistantMessage = data.choices[0].message.content;
 
-        appendMessage('assistant', assistantMessage);
-        memoryContext.push({ role: "assistant", content: assistantMessage });
+        // VALIDAÇÃO DE ERRO: Se o OpenRouter mandou um erro estruturado
+        if (data.error) {
+            console.error("Erro retornado pelo OpenRouter:", data.error);
+            appendMessage('assistant', `Erro no OpenRouter: ${data.error.message || JSON.stringify(data.error)}`);
+            return;
+        }
+
+        if (data.choices && data.choices[0]) {
+            const assistantMessage = data.choices[0].message.content;
+            appendMessage('assistant', assistantMessage);
+            memoryContext.push({ role: "assistant", content: assistantMessage });
+        } else {
+            console.error("Resposta inesperada da API:", data);
+            appendMessage('assistant', "Recebi uma resposta incompleta do servidor. Verifique o console.");
+        }
 
     } catch (error) {
+        console.error("Erro na comunicação:", error);
+        appendMessage('assistant', "Desculpe-me, tive um pequeno imprevisto técnico aqui na concessionária. Poderia repetir?");
+    }
+}
         console.error("Erro na comunicação:", error);
         appendMessage('assistant', "Desculpe-me, tive um pequeno imprevisto técnico aqui na concessionária. Poderia repetir?");
     }
