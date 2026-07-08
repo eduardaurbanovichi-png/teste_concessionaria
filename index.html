@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concessionária Virtual - Atendimento Premium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="showroom-overlay">
+        <div class="brand-badge">SHOWROOM EXCLUSIVO</div>
+    </div>
+
+    <div class="chat-container">
+        <header class="chat-header">
+            <img src="pessoa.png" alt="Logo Concessionária" class="logo" onerror="this.style.display='none'">
+            <div class="header-status">
+                <h2>Francisco</h2>
+                <span class="status-indicator">Consultor Online</span>
+            </div>
+        </header>
+        
+        <div class="chat-box" id="chatBox">
+            <div class="message assistant">
+                Olá! Sou o Francisco, seu consultor automotivo. Estou aqui para te ajudar a encontrar o carro ideal para a sua rotina e o seu bolso. 
+                
+                Para começarmos, qual tipo de veículo você tem em mente ou qual será o uso principal dele?
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="userInput" placeholder="Fale com o Francisco sobre seu próximo carro..." autocomplete="off">
+            <button id="sendBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

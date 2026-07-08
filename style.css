@@ -1,0 +1,200 @@
+:root {
+    --bg-dark: #0f1115;       /* Fundo escuro estilo showroom moderno */
+    --panel-dark: #1a1d24;    /* Fundo do chat */
+    --accent-red: #e30613;    /* Detalhes esportivos/botões */
+    --text-light: #f5f6f8;
+    --text-muted: #8a9099;
+    --border-color: #2a2e38;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* Opcional: Adicione uma foto de carros desfocada no fundo dentro da pasta assets */
+    background-image: linear-gradient(rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.95)), url('assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--text-light);
+}
+
+/* Identidade visual de Showroom no topo da tela */
+.brand-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    border-left: 3px solid var(--accent-red);
+    padding-left: 8px;
+}
+
+/* Container do Chat estilo painel de carro de luxo */
+.chat-container {
+    width: 100%;
+    max-width: 440px;
+    height: 85vh;
+    background: var(--panel-dark);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Cabeçalho elegante */
+.chat-header {
+    background: #111317;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chat-header .logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 4px;
+}
+
+.header-status h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.status-indicator {
+    font-size: 0.75rem;
+    color: #00e676;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-indicator::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #00e676;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00e676;
+}
+
+/* Caixa de mensagens */
+.chat-box {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: radial-gradient(circle at top, #1e222b 0%, #16181f 100%);
+}
+
+/* Balões de mensagens estilo Concessionária */
+.message {
+    max-width: 85%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    white-space: pre-line;
+}
+
+/* Resposta do Francisco (Consultor) */
+.message.assistant {
+    background: #222631;
+    color: var(--text-light);
+    align-self: flex-start;
+    border-top-left-radius: 2px;
+    border: 1px solid #2d3342;
+}
+
+/* Resposta do Cliente */
+.message.user {
+    background: var(--accent-red);
+    color: #ffffff;
+    align-self: flex-end;
+    border-top-right-radius: 2px;
+    box-shadow: 0 4px 12px rgba(227, 6, 19, 0.3);
+}
+
+/* Área de Input */
+.chat-input-area {
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    background: #111317;
+    border-top: 1px solid var(--border-color);
+}
+
+#userInput {
+    flex: 1;
+    padding: 14px;
+    background: #1e222b;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-light);
+    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+#userInput::placeholder {
+    color: var(--text-muted);
+}
+
+#userInput:focus {
+    border-color: var(--accent-red);
+}
+
+/* Botão Enviar Esportivo */
+#sendBtn {
+    background: var(--accent-red);
+    color: white;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 12px rgba(227, 6, 19, 0.2);
+}
+
+#sendBtn:hover {
+    background: #ff1c2a;
+    transform: translateY(-1px);
+}
+
+#sendBtn:active {
+    transform: translateY(1px);
+}
+
+/* Scrollbar customizada e discreta */
+.chat-box::-webkit-scrollbar {
+    width: 5px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+    background: #2a2e38;
+    border-radius: 10px;
+}
