@@ -16,17 +16,12 @@
 
 body {
     background-color: var(--bg-dark);
-    /* Opcional: Adicione uma foto de carros desfocada no fundo dentro da pasta assets */
-    background-image: linear-gradient(rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.95)), url('assets/background.jpg');
-    background-size: cover;
-    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     color: var(--text-light);
 }
-
 /* Identidade visual de Showroom no topo da tela */
 .brand-badge {
     position: absolute;
