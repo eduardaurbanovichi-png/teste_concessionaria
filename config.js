@@ -1,5 +1,5 @@
 const CONFIG = {
-    // Substituímos pelo modelo gratuito da Meta que não exige saldo pré-pago
-    MODEL: 'meta-llama/llama-3-8b-instruct:free' 
+    // Modelo atualizado, rápido e totalmente gratuito no OpenRouter
+    MODEL: 'google/gemini-2.5-flash:free' 
 };
 export default CONFIG;
