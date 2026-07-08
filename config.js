@@ -1,5 +1,5 @@
 const CONFIG = {
-    // Modelo gratuito atualizado e online no OpenRouter
-    MODEL: 'microsoft/phi-3-medium-128k-instruct:free'
+    // Modelo GPT-4o-Mini da OpenAI via OpenRouter
+    MODEL: 'openai/gpt-4o-mini'
 };
 export default CONFIG;
