@@ -1,5 +1,5 @@
 const CONFIG = {
-    // Modelo GPT-4o-Mini da OpenAI via OpenRouter
-    MODEL: 'openai/gpt-4o-mini'
+    // Modelo super rápido e estável no Groq
+    MODEL: 'llama3-8b-8192' 
 };
 export default CONFIG;
