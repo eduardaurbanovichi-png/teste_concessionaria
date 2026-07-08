@@ -1,4 +1,5 @@
 const CONFIG = {
-    MODEL: 'google/gemini-2.5-flash' // Mude o modelo aqui quando quiser
+    // Substituímos pelo modelo gratuito da Meta que não exige saldo pré-pago
+    MODEL: 'meta-llama/llama-3-8b-instruct:free' 
 };
 export default CONFIG;
