@@ -1,5 +1,4 @@
 export async function handler(event, context) {
-    // Permite apenas requisições do tipo POST
     if (event.httpMethod !== "POST") {
         return { statusCode: 405, body: "Method Not Allowed" };
     }
@@ -7,24 +6,25 @@ export async function handler(event, context) {
     try {
         const { messages, model } = JSON.parse(event.body);
         
-        // O Netlify busca a chave escondida nas variáveis de ambiente do servidor
-        const apiKey = process.env.OPENROUTER_API_KEY; 
+        // Puxa a chave do Groq que configurou no painel do Netlify
+        const apiKey = process.env.GROQ_API_KEY; 
 
         if (!apiKey) {
             return {
                 statusCode: 500,
-                body: JSON.stringify({ error: "Chave de API não configurada no Netlify." })
+                body: JSON.stringify({ error: "Chave de API do Groq não configurada no Netlify." })
             };
         }
 
-        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        // Endpoint oficial do Groq Cloud
+        const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${apiKey}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                model: model || 'google/gemini-2.5-flash',
+                model: model || 'llama3-8b-8192', // Modelo padrão caso falte no config
                 messages: messages
             })
         });
