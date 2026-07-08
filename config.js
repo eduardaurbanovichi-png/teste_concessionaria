@@ -1,4 +1,4 @@
 const CONFIG = {
-    MODEL: 'google/gemini-2.5-flash:free' // Certifique-se de que está escrito exatamente assim
+    MODEL: 'mistralai/mistral-7b-instruct:free'
 };
 export default CONFIG;
