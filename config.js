@@ -1,5 +1,4 @@
 const CONFIG = {
-    // Modelo atualizado, rápido e totalmente gratuito no OpenRouter
-    MODEL: 'google/gemini-2.5-flash:free' 
+    MODEL: 'google/gemini-2.5-flash:free' // Certifique-se de que está escrito exatamente assim
 };
 export default CONFIG;
