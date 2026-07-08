@@ -40,7 +40,6 @@ async function sendMessage() {
 
         const data = await response.json();
 
-        // VALIDAÇÃO DE ERRO: Se o OpenRouter mandou um erro estruturado
         if (data.error) {
             console.error("Erro retornado pelo OpenRouter:", data.error);
             appendMessage('assistant', `Erro no OpenRouter: ${data.error.message || JSON.stringify(data.error)}`);
@@ -57,10 +56,6 @@ async function sendMessage() {
         }
 
     } catch (error) {
-        console.error("Erro na comunicação:", error);
-        appendMessage('assistant', "Desculpe-me, tive um pequeno imprevisto técnico aqui na concessionária. Poderia repetir?");
-    }
-}
         console.error("Erro na comunicação:", error);
         appendMessage('assistant', "Desculpe-me, tive um pequeno imprevisto técnico aqui na concessionária. Poderia repetir?");
     }
