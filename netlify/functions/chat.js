@@ -6,7 +6,7 @@ export async function handler(event, context) {
     try {
         const { messages, model } = JSON.parse(event.body);
         
-        // Puxa a chave do Groq que configurou no painel do Netlify
+        // Puxa a chave do Groq que configuraste no painel do Netlify
         const apiKey = process.env.GROQ_API_KEY; 
 
         if (!apiKey) {
@@ -16,7 +16,7 @@ export async function handler(event, context) {
             };
         }
 
-        // Endpoint oficial do Groq Cloud
+        // Endpoint oficial da API do Groq Cloud
         const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
             method: "POST",
             headers: {
@@ -24,7 +24,7 @@ export async function handler(event, context) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                model: model || 'llama3-8b-8192', // Modelo padrão caso falte no config
+                model: model || 'llama3-8b-8192',
                 messages: messages
             })
         });
